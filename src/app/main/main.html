@@ -1,5 +1,10 @@
 <div class="container">
-
+  <div enter>
+    <div>
+      Dangerous!!
+    </div>
+  </div>
+  <div super-man flash>Why not see me ?</div>
   <div>
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
@@ -18,6 +23,7 @@
     </p>
   </div>
 
+
   <div class="col" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
     <div class="thumbnail">
       <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
@@ -28,6 +34,4 @@
       </div>
     </div>
   </div>
-  <super-man></super-man>
-
 </div>

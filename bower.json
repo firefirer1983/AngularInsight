@@ -8,12 +8,23 @@
     "angular-toastr": "~1.5.0",
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
-    "angular": "~1.5.3"
+    "angular": "~1.5.3",
+    "foundation": "~5.5.3",
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
   },
   "resolutions": {
     "angular": "~1.5.3"
+  },
+  "overrides": {
+    "foundation": {
+      "main": [
+        "css/normalize.css",
+        "css/foundation.css",
+        "foundation.js"
+      ]
+    }
   }
 }
