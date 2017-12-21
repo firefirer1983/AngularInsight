@@ -7,12 +7,12 @@
     .directive('enter', enterAct);
 
   function enterAct() {
-    return function (scope, elem) {
+    return function (scope, elem, attrs) {
       elem.bind("mouseenter", function () {
-        elem.addClass('panel');
+        scope.$apply(attrs.enter);
       });
       elem.bind("mouseleave", function () {
-        elem.removeClass('panel');
+        elem.removeClass(attrs.enter);
       })
     }
   }

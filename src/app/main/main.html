@@ -1,11 +1,26 @@
 <div class="container">
-  <div enter>
+  <super-man>I am the SuperMan</super-man>
+  <div enter="enter()" leave="panel">
     <div>
       Dangerous!!
     </div>
   </div>
-  <div super-man flash>Why not see me ?</div>
+  <div class=super-man></div>
+  <super-hero flight strength speed>SuperMan</super-hero>
+  <super-hero speed>Flash</super-hero>
+  <super-hero strength>Hulk</super-hero>
+  <div ng-controller="scopeDemoController as ctrl">
+    <kid done="ctrl.onChore(value)"></kid>
+  </div>
   <div>
+    <input type="text" ng-model="model.title">
+    <input type="text" ng-model="model.content">
+    <zippy title="{{model.title}}">
+    <div>{{model.content}}</div>
+    </zippy>
+    <div>
+  </div>
+
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
 
