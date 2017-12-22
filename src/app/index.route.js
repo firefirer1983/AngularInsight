@@ -17,21 +17,42 @@
         controller: 'RouteDemoController',
         controllerAs: 'routedemo',
         resolve: {
-          app: function ($q, $timeout) {
-            var defer = $q.defer();
-            defer.promise.then(function (msg) {
-              alert("promise resolve, msg: " + msg);
-            });
-            $timeout(function () {
-              defer.resolve("time out is here");
-            }, 2000);
-            return defer.promise;
-          }
+          loadData: RouteErrController.loadData
         }
+      })
+      .when('/game', {
+        templateUrl: 'app/components/gameProviders/game.html',
+        controller: 'GameController',
+        controllerAs: 'gameCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   }
 
+
+  var RouteErrController = angular
+    .module('angularInsight')
+    .controller('RouteErrController', function () {
+      // $log.log("RouteErrController create!");
+      // var deregisterationCallback = $rootScope.$on("$routeChangeError", function (event, current, previous, rejection) {
+      //   alert(rejection);
+      // });
+      // $rootScope.$on("$destroy", function () {
+      //   deregisterationCallback();
+      // })
+    });
+
+
+  RouteErrController.loadData = function ($q, $timeout, $log) {
+    var defer = $q.defer();
+    defer.promise.then(function (msg) {
+      alert("promise resolve, msg: " + msg);
+    });
+    $timeout(function () {
+      $log.log("Network is down!");
+      defer.reject("Network is down!");
+    }, 2000);
+    return defer.promise;
+  };
 })();

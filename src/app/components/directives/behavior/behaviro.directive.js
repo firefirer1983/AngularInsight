@@ -16,4 +16,26 @@
       })
     }
   }
+
+  angular
+    .module('angularInsight')
+    .directive('errbanner', errbanner);
+
+  function errbanner($rootScope, $log) {
+    return {
+      restrict: "E",
+      scope:{},
+      template: '<div ng-show="hasError" class="alert-box alert">{{rejection}}</div>',
+      link: function (scope) {
+        $log.log("errbanner create!");
+        var deregisterationCallback = $rootScope.$on("$routeChangeError", function (event, current, previous, rejection) {
+          scope.hasError = true;
+          scope.rejection = rejection;
+        });
+        $rootScope.$on("$destroy", function () {
+          deregisterationCallback();
+        });
+      }
+    }
+  }
 })();
